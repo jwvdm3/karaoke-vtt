@@ -2,12 +2,11 @@ function code() {
   const trk0 = '<track kind="subtitles" srclang="en"',
     sings = new Map([  // video sources
       ["one",
-`<source src="https://ia801308.us.archive.org/31/items/youtube-jfCpbz1beFo/jfCpbz1beFo.webm" type="video/webm">
- <source src="https://ia801308.us.archive.org/31/items/youtube-jfCpbz1beFo/jfCpbz1beFo.mp4" type="video/mp4">
+`<source src="Amazing_Grace-Rising_Sun.mp4" type="video/mp4">
  ${trk0} src="one.one.vtt" label="one">
  ${trk0} src="one.two.vtt" label="two">`],
       ["two", 
-`<source src="https://ia600108.us.archive.org/6/items/Animals-House_of_the_Rising_Sun_BW/Animals-House_of_the_Rising_Sun_BW.mp4" type="video/mp4">
+`<source src="Animals-House_of_the_Rising_Sun_BW.mp4" type="video/mp4">
  ${trk0} src="two.one.vtt" label="one">
  ${trk0} src="two.two.vtt" label="two">`],
     ]);
@@ -82,4 +81,5 @@ function code() {
         seconds = (totalSeconds % 60).toFixed(3).padStart(6, '0');
     return `${hours}:${minutes}:${seconds}`;
   }
+
 }
