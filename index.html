@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Exactly Karaoke</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- link rel="stylesheet" href="cuestyles.css" -->
+  <script src="code.js"></script>
+  <script src="vttTimestampTags.js"></script>
+</head>
+
+<body onload="code();">
+  <header class="fade-in">
+    <h1>Not Exactly Karaoke</h1>
+    <p>One melody; Two sets of lyrics<br>Two very different musical settings</p>
+    <div id="options">
+      <fieldset>
+        <legend>lyrics sung</legend>
+        <input type="radio" id="sing-one" name="sing" value="one" />
+          <label for="sing-one">first</label>
+        <input type="radio" id="sing-two" name="sing" value="two" />
+          <label for="sing-two">second</label>
+      </fieldset>
+      <button type="button" disabled>&#x25B6;</button>
+      <fieldset>
+        <legend>lyrics shown</legend>
+        <input type="radio" id="show-one" name="show" value="one" />
+          <label for="show-one">first</label>
+        <input type="radio" id="show-two" name="show" value="two" />
+          <label for="show-two">second</label>
+      </fieldset>
+    </div>
+  </header>
+  <video poster="https://cdn.pixabay.com/photo/2021/11/06/08/28/balance-6772762_640.jpg"></video>
+  <footer class="fade-in">
+    <span id="nowTime">&nbsp;</span>
+    <span id="runTime">&nbsp;</span>
+    <details><summary>credits</summary>
+
+First video: <a href="https://en.wikipedia.org/wiki/Brendan_Kavanagh" target="_blank">Brendan Kavanagh</a> and Mark Leen do an impromptu version of 'Amazing Grace'<br>
+Second video: <a href="https://en.wikipedia.org/wiki/The_Animals"target="_blank">The Animals</a> perform 'House Of The Rising Sun'
+<p>both videos from <a href="https://archive.org/" target="_blank">archive.org</a></p>
+
+First lyrics: 'Amazing Grace', by <a href="https://en.wikipedia.org/wiki/John_Newton" target="_blank">John Newton</a> (1725-1807)<br>
+Second lyrics: 'House of the Rising Sun', an American folk song<br>
+
+Poster image, 'Balance - Black and White', by <a href="https://pixabay.com/users/alighafouri-24209754/" target="_blank">AliGhafouri</a> from <a href="https://pixabay.com/" target="_blank">Pixabay</a><br>
+    </details>
+  </footer>
+</body>
+
+</html>
