@@ -5,8 +5,6 @@ STYLE
   color: red;  // match .future
   background-color: transparent;
 }
-::cue(v[voice="DrK"]) { color:lightblue; }
-::cue(v[voice="cam"]) { color:lightpink; }
 ::cue(.past)    { color: maroon; }
 ::cue(.current) { color: pink; }
 ::cue(.future)  { color: red; }
@@ -84,3 +82,4 @@ Yes, <02:12.489>God <02:13.869>I <02:14.189>know <02:15.389>I'm <02:16.539>one.
 
 02:24.959 --> 02:25.559 
 <v DrK>Well done, Mark.</v>
+
