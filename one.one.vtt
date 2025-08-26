@@ -5,8 +5,6 @@ STYLE
   color: blue;  // match .future
   background-color: transparent;
 }
-::cue(v[voice="DrK"]) { color:lightblue; }
-::cue(v[voice="cam"]) { color:lightpink; }
 ::cue(.past)    { color: darkcyan; }
 ::cue(.current) { color: cyan; }
 ::cue(.future)  { color: blue; }
@@ -81,4 +79,5 @@ I <02:05.809>was <02:06.069>blind, <02:07.449>but <02:07.779>now <02:08.730>I <0
 Yes, <02:12.489>blind, <02:13.869>but <02:14.189>now <02:15.389>I <02:16.539>see.
 
 00:02:24.959 --> 00:02:25.559
+
 <v DrK>Well done, Mark.</v>
