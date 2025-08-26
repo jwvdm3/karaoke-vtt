@@ -9,7 +9,8 @@ function code() {
 `<source src="Animals-House_of_the_Rising_Sun_BW.mp4" type="video/mp4">
  ${trk0} src="two.one.vtt" label="one">
  ${trk0} src="two.two.vtt" label="two">`],
-    ]);
+    ]),
+    loud = { one:0.4, two:1.0 };  // correct for volume imbalance between videos
   const inputs = document.querySelectorAll("input"),  // just the radio buttons
         button = document.querySelector("button"),
         video = document.querySelector("video"),
@@ -52,6 +53,7 @@ function code() {
     for (radio of inputs) radio.disabled = true;
     nowTime.textContent = runTime.textContent = nbsp;
     video.innerHTML = sings.get(sing);
+    video.volume = loud[sing];
     video.load();
     vttTimestampTags(video);
     for (const track of video.querySelectorAll("track")) {
@@ -83,3 +85,4 @@ function code() {
   }
 
 }
+
