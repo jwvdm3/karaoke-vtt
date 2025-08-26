@@ -5,10 +5,6 @@ STYLE
   color: blue;  // match .future
   background-color: transparent;
 }
-::cue(v[voice="aside"]) {
-  color: mistyrose; 
-  opacity: 0.7;
-}
 ::cue(.past)    { color: darkcyan; }
 ::cue(.current) { color: cyan; }
 ::cue(.future)  { color: blue; }
