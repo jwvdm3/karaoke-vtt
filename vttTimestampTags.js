@@ -25,10 +25,14 @@ function vttTimestampTags(video, alternatives) {
  * This function uses the 'cuechange' and 'timeupdate' events for its 
  * processing; 'addtrack' for the unlikely event that a new track is added 
  * during processing.
- * This function does not yet handle manual changes to video.currentTime 
- * correctly.  And with two concurrent payloads (e.g., soprano and tenor lines 
- * of a duet) one tends to lag behind the other, even though the VTTCue.text 
- * changes are both entered at the same currentTime of the video.
+ * Backwards manual changes to video.currentTime will initially display the last
+ * version of each cue it re-activates, but progress appropriately from there 
+ * for each of those cues.
+ * With two concurrent payloads (e.g., soprano and tenor lines of a duet) one 
+ * tends to lag behind the other, even though the VTTCue.text changes are both 
+ * entered at the same currentTime of the video.
+ *
+// 09/27/25  correct cueChange logic for currentTime jumps; eliminate unused code
  */
   const {past="past", current="current", future="future"} = alternatives||{};
   const CODE = Symbol.for("vttTimestampTags-code"),
@@ -55,9 +59,14 @@ function vttTimestampTags(video, alternatives) {
         break;
       case undefined:  // newly added
         parse(cue);
-        if (cue[CODE] === null) break;
-        // fall through
+        if (cue[CODE] !== null) {
+          textTrack[MIN] = Math.max(textTrack[MIN], cue[MIN]);
+          textTrack[MAX] = Math.min(textTrack[MAX], cue[MAX]);
+        }
+        break;
       default:  // textTrack values span all active cues
+        if (video.currentTime < cue[MIN] ||               // deal with jump
+            video.currentTime >= cue[MAX]) refresh(cue);  // in currentTime
         textTrack[MIN] = Math.max(textTrack[MIN], cue[MIN]);
         textTrack[MAX] = Math.min(textTrack[MAX], cue[MAX]);
       }
@@ -76,7 +85,6 @@ function vttTimestampTags(video, alternatives) {
     let now = video.currentTime;
     if (now >= textTrack[MAX]) {
       // advance (some) active cue(s)
-      let next = [];  // in case multiple concurrent
       for (const cue of textTrack.activeCues) {
         if (now >= cue[MAX]) refresh(cue);
       }
