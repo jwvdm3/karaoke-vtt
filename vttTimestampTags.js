@@ -32,7 +32,7 @@ function vttTimestampTags(video, alternatives) {
  * tends to lag behind the other, even though the VTTCue.text changes are both 
  * entered at the same currentTime of the video.
  *
-// 09/27/25  correct cueChange logic for currentTime jumps; eliminate unused code
+// 08/27/25  correct cueChange logic for currentTime jumps; eliminate unused code
  */
   const {past="past", current="current", future="future"} = alternatives||{};
   const CODE = Symbol.for("vttTimestampTags-code"),
